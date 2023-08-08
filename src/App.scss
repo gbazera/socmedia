@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+$accent: #578AEC;
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body{
+    background-color: #111;
+}
+
+.App{
+    width: 640px;
+    margin: 0 auto;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+
+    a{
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .logo{
+        font-size: 16px;
+    }
+
+    .right{
+        display: flex;
+        gap: 7px;
+
+        a{
+            font-size: 14px;
+        }
+
+        .log_out{
+            color: #ccc;
+            text-decoration: underline;
+        }
+    }
+
+    .burger{
+        background-color: transparent;
+        border: none;
+        font-size: 24px;
+        color: #fff;
+        cursor: pointer;
+        transition: .3s;
+        display: none;
+    }
+
+    .burger.active{
+        rotate: 45deg;
+    }
+}
+
+.new_post{
+    display: flex;
+    flex-direction: column;
+
+    textarea{
+        padding: 10px;
+        border: 2px #222 solid;
+        background-color: transparent;
+        color: #fff;
+        border-radius: 5px;
+        resize: vertical;
+        min-height: 100px;
+        font-size: 16px;
+    }
+
+    textarea::placeholder{
+        color: #555;
+    }
+
+    button{
+        display: none;
+    }
+}
+
+.post{
+    padding: 20px;
+    background-color: #222;
+    border: 2px #333 solid;
+    border-radius: 5px;
+    display: flex;
+    margin-top: 20px;
+
+    .pfp{
+        width: 48px;
+        height: 48px;
+        border-radius: 5px;
+    }
+
+    .right{
+        margin-left: 10px;
+
+        .top{
+            display: flex;
+            align-items: center;
+
+            .display_name{
+                font-size: 16px;
+                font-weight: bold;
+                color: #fff;
+                margin-right: 5px;
+            }
+    
+            a{
+                font-size: 12px;
+                color: #ccc;
+                text-decoration: none;
+            }
+
+            .dot{
+                margin: 0 4px;
+            }
+        }
+
+        .content{
+            font-size: 24px;
+            color: #fff;
+            margin: 10px 0;
+        }
+
+        .like-btn{
+            background-color: transparent;
+            padding: 0;
+            border: none;
+            color: #ccc;
+            font-size: 12px;
+            cursor: pointer;
+
+            span{
+                font-weight: bold;
+            }
+        }
+
+        .like-btn.active{
+            span{
+                color: $accent;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    body{
+        overflow-x: hidden;
+    }
+    .App{
+        width: 100%;
+        padding: 0 40px;
+    }
+
+    nav{
+        .burger{
+            display: inline-block;
+        }
+        .logo{
+            font-size: 12px;
+        }
+
+        .right{
+            position: absolute;
+            right: -50%;
+            top: 99px;
+            height: calc(100% - 99px);
+            width: 50%;
+            padding-bottom: 100px;
+            background-color: #111;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+            transition: .3s;
+
+            a{
+                font-size: 16px;
+            }
+
+            .dot{
+                display: none;
+            }
+        }
+
+        .right.active{
+            right: 0;
+        }
+    }
+
+    .new_post{
+        textarea{
+            font-size: 12px;
+        }
+    }
+
+    .post{
+        .right{
+            margin-left: 10px;
+    
+            .top{
+                .display_name{
+                    font-size: 14px;
+                }
+        
+                a{
+                    font-size: 10px;
+                }
+    
+                .dot{
+                    margin: 0 4px;
+                }
+            }
+    
+            .content{
+                font-size: 16px;
+            }
+    
+            .like-btn{
+                font-size: 10px;
+            }
+    
+            .like-btn.active{
+                span{
+                    color: $accent;
+                }
+            }
+        }
+    }
+}
