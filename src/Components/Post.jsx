@@ -1,4 +1,9 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+
 function Post(props) {
+    const likes = props.like_amount
+
     return(
         <article className="post">
             <img src={props.pfp} alt="" className="pfp" />
