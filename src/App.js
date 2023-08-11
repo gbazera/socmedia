@@ -21,25 +21,22 @@ function App() {
     )
   }, [])
 
-  const getAuthor=(id)=>{
-    return new Promise(async (resolve, reject) => {
-        await fetch('/users/' + id).then(
-          response => response.json()
-        ).then(
-          data => {
-            resolve(data)
-          }
-        )
-    })
+  // const getAuthor=async(id)=>{
+  //   const res = await fetch('/users/' + id);
+  //   const data = await res.json();
+  //   return data;
+  // }
+
+  const getAuthorPromise = async (id)=>{
+    const response = await fetch('/users/' + id);
+    const data = await response.json();
+    return data;
   }
 
-  var test
-
-  getAuthor('64d55721f77374e8e768d630').then((res)=>{
-    test = res
-  })
-
-  console.log(test)
+  const getAuthor = async(id) => {
+    var data = await getAuthorPromise(id);
+    return data;
+  }
 
   return (
     <div className="App">
@@ -50,7 +47,7 @@ function App() {
           <p>loading..</p>
         ): (
           posts.map((post, i) => (
-            <Post pfp={pfp0} display_name={getAuthor('64d55721f77374e8e768d630').toString()} like_amount={post.liked_by ? post.liked_by.length : '0'} date_added={post.date_added} content={post.content} />
+            <Post pfp={pfp0} author_promise={getAuthorPromise('64d55721f77374e8e768d630')} like_amount={post.liked_by ? post.liked_by.length : '0'} date_added={post.date_added} content={post.content} />
           ))
         )}
         {/* <Post pfp={pfp0} username='djkhaled' display_name='DJ Khaled' like_amount='785' date_added='5m' content='LETS GO GOLFING' />
