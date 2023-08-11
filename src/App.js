@@ -21,15 +21,25 @@ function App() {
     )
   }, [])
 
-  const getAuthor=async(id)=>{
-    await fetch('/users/' + id).then(
-      response => response.json()
-    ).then(
-      data => {
-        console.log(data)
-      }
-    )
+  const getAuthor=(id)=>{
+    return new Promise(async (resolve, reject) => {
+        await fetch('/users/' + id).then(
+          response => response.json()
+        ).then(
+          data => {
+            resolve(data)
+          }
+        )
+    })
   }
+
+  var test
+
+  getAuthor('64d55721f77374e8e768d630').then((res)=>{
+    test = res
+  })
+
+  console.log(test)
 
   return (
     <div className="App">
@@ -40,7 +50,7 @@ function App() {
           <p>loading..</p>
         ): (
           posts.map((post, i) => (
-            <Post pfp={pfp0} display_name="{getAuthor(post.author).display_name}" like_amount={post.liked_by ? post.liked_by.length : '0'} date_added={post.date_added} content={post.content} />
+            <Post pfp={pfp0} display_name={getAuthor('64d55721f77374e8e768d630').toString()} like_amount={post.liked_by ? post.liked_by.length : '0'} date_added={post.date_added} content={post.content} />
           ))
         )}
         {/* <Post pfp={pfp0} username='djkhaled' display_name='DJ Khaled' like_amount='785' date_added='5m' content='LETS GO GOLFING' />
