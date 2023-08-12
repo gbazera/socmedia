@@ -3,8 +3,7 @@ import Nav from './Components/Nav';
 import NewPost from './Components/NewPost';
 import Post from './Components/Post';
 
-import pfp0 from './img/pfp0.jpg';
-import pfp1 from './img/pfp1.jpg';
+import def_pfp from './img/default-pfp.jpg';
 
 import { useState, useEffect } from 'react';
 
@@ -47,7 +46,7 @@ function App() {
           <p>loading..</p>
         ): (
           posts.map((post, i) => (
-            <Post pfp={pfp0} author_promise={getAuthorPromise('64d55721f77374e8e768d630')} like_amount={post.liked_by ? post.liked_by.length : '0'} date_added={post.date_added} content={post.content} />
+            <Post pfp={def_pfp} author_promise={getAuthorPromise('64d55721f77374e8e768d630')} like_amount={post.liked_by ? post.liked_by.length : '0'} date_added={post.date_added} content={post.content} />
           ))
         )}
         {/* <Post pfp={pfp0} username='djkhaled' display_name='DJ Khaled' like_amount='785' date_added='5m' content='LETS GO GOLFING' />
