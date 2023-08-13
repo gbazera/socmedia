@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import moment from 'moment';
 
 function Post(props) {
-    const likes = props.like_amount
     const [author, setAuthor] = useState({})
 
     const dateConverter = (startDate, timeEnd) => {

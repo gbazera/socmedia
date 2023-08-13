@@ -152,6 +152,32 @@ nav{
     }
 }
 
+.register, .login{
+    color: #ccc;
+    background-color: #222;
+    border-radius: 5px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    margin-top: 120px;
+    align-items: center;
+
+    label{
+        margin-right: 10px;
+    }
+
+    input{
+        padding: 5px;
+        background-color: #111;
+        color: #fff;
+        border: 2px #333 solid;
+        border-radius: 5px;
+    }
+}
+
 @media screen and (max-width: 900px) {
     body{
         overflow-x: hidden;
