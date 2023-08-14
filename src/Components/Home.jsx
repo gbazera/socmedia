@@ -34,7 +34,7 @@ function Home(props) {
                     <p>loading..</p>
                 ) : (
                     posts.map((post, i) => (
-                        <Post pfp={def_pfp} author_promise={getAuthor('64d55721f77374e8e768d630')} like_amount={post.liked_by ? post.liked_by.length : '0'} date_added={post.date_added} content={post.content} />
+                        <Post pfp={def_pfp} author_promise={getAuthor(post.author)} like_amount={post.liked_by ? post.liked_by.length : '0'} date_added={post.date_added} content={post.content} />
                     ))
                 )}
                 {/* <Post pfp={pfp0} username='djkhaled' display_name='DJ Khaled' like_amount='785' date_added='5m' content='LETS GO GOLFING' />
